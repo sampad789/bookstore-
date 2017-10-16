@@ -14,12 +14,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import fi.hh.bookstore.bookstore.domain.Book;
 import fi.hh.bookstore.bookstore.domain.BookRepository;
 import fi.hh.bookstore.bookstore.domain.CategoryRepository;
+import fi.hh.bookstore.bookstore.domain.UserRepository;
 
 @Controller
 
 public class BookController {
 	@Autowired
 	private BookRepository repository;
+	
+	@Autowired 
+	private UserRepository urepository;
 	
 	 @Autowired
 	 private CategoryRepository crepository;
@@ -37,6 +41,7 @@ public class BookController {
 	@RequestMapping(value = "/booklist")
 	public String bookList(Model model) {
 		model.addAttribute("books", repository.findAll());
+		model.addAttribute("users", urepository.findAll());
 		return "booklist";
 	}
 
