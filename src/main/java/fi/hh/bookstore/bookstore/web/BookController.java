@@ -64,7 +64,6 @@ public class BookController {
 	public String editBook(@PathVariable("id") Long bookId, Model model) {
 		model.addAttribute("book", repository.findOne(bookId));
 		model.addAttribute("categorys", crepository.findAll());
-		System.out.println( repository.findOne(bookId).getTitle());
 		return "editbook";
 		}
 	@RequestMapping(value = "/save", method = RequestMethod.POST)

@@ -27,15 +27,15 @@ public class BookstoreApplication {
 @Bean
 	public CommandLineRunner bookDemo(BookRepository brepository, CategoryRepository crepository,UserRepository urepository) {
 		return (args) -> {
-			log.info("save a couple of books");
+			log.info("save a couple of categories");
 			crepository.save(new Category("Fiction"));
 			crepository.save(new Category("History"));
 			crepository.save(new Category("Educational"));
 			crepository.save(new Category("Drama"));
 			
-			
-			//brepository.save(new Book("Maths", "yazeed", "1234", 1990, 24.0,crepository.findByName("Educational")));
-			//brepository.save(new Book("English", "Mati", "12345", 1991, 30.0));
+			log.info("save a couple of books");
+			brepository.save(new Book("Maths", "yazeed", "1234", 1990, 24.0,crepository.findByName("Educational").get(0)));
+			brepository.save(new Book("English", "Mati", "12345", 1991, 30.0,crepository.findByName("Educational").get(0)));
 
 			// Create users: admin/admin user/user
 						User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");

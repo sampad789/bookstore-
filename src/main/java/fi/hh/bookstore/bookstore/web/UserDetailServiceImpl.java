@@ -1,8 +1,5 @@
 package fi.hh.bookstore.bookstore.web;
 
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,11 +12,11 @@ import fi.hh.bookstore.bookstore.domain.UserRepository;
 
 
 	
-	@Service
+@Service
 	public class UserDetailServiceImpl implements UserDetailsService  {
 	private final UserRepository repository;
 	 
- 	@Autowired
+ @Autowired
  	public UserDetailServiceImpl(UserRepository userRepository) {
  		this.repository = userRepository;
  	}
